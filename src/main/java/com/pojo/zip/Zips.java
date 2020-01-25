@@ -6,22 +6,23 @@
 package com.pojo.zip;
 
 import org.bson.Document;
+import org.bson.codecs.pojo.annotations.BsonDiscriminator;
 
 /**
  *
  * @author aquil
  */
-public class Zips extends Document
+@BsonDiscriminator
+public class Zips
 {
+
     private String pop;
-
     private String zip;
-
     private Loc loc;
-
     private String city;
-
     private String state;
+
+    public Zips(){}
 
     public String getPop ()
     {

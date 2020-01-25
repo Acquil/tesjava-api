@@ -5,12 +5,16 @@
  */
 package com.pojo.zip;
 
+import org.bson.codecs.pojo.annotations.BsonDiscriminator;
+
 /**
  *
  * @author aquil
  */
+@BsonDiscriminator
 public class Loc
 {
+    public Loc(){}
     private String x;
 
     private String y;
