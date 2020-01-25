@@ -142,4 +142,20 @@ public class GreetingController {
 
         return results;
     }
+
+    @DeleteMapping("/api/get/person")
+    public String deletePerson(@RequestParam(value = "name", defaultValue = "") String name){
+
+        MongoClientURI uri = new MongoClientURI(
+                "mongodb+srv://user01:bl4ck4dd3r@cluster0-kooqx.mongodb.net/test?retryWrites=true&w=majority");
+        MongoClient mongoClient = new MongoClient(uri);
+        MongoDatabase database = mongoClient.getDatabase("test");
+
+        MongoCollection<Document> coll = database.getCollection("users");
+
+        coll.deleteMany(eq("name",name.toUpperCase()));
+
+
+        return "Deleted";
+    }
 }
